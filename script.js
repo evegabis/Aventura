@@ -1,13 +1,18 @@
 const avanca = document.querySelectorAll('.btn-proximo');
 const reiniciarBtn = document.getElementById('btn-reiniciar');
 
-avanca.forEach(button =>
+avanca.forEach(button => {
     button.addEventListener('click', function () {
         const atual = document.querySeletor('ativo');
         const proximoPasso = 'passo-' + this.getAttribute('data-proximo');
 
         atual.classList.remove('ativo');
-        const proximoElemento= document.getElementById(proximoPasso)
-        
-    })
-)
+        const proximoElemento = document.getElementById(proximoPasso)
+
+        if (proximoElemento) {
+            proximoElemento.classList.add('ativo');
+        } else {
+            console.error(`Elemento com ID "${proximoPasso}"não encontrado.`)
+        }
+    });
+});
