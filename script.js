@@ -1,3 +1,6 @@
 const avanca = document.querySelectorAll('.btn-proximo');
+const reiniciarBtn = document.getElementsById('btn-reiniciar');
 
-avanca.for
+avanca.forEach(button =>
+    button.addEventListener 
+)
