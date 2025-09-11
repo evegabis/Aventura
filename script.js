@@ -1,18 +1,22 @@
+
 const avanca = document.querySelectorAll('.btn-proximo');
 const reiniciarBtn = document.getElementById('btn-reiniciar');
 
 avanca.forEach(button => {
     button.addEventListener('click', function () {
-        const atual = document.querySeletor('ativo');
+        const atual = document.querySelector('.ativo'); // corrigido
         const proximoPasso = 'passo-' + this.getAttribute('data-proximo');
 
-        atual.classList.remove('ativo');
-        const proximoElemento = document.getElementById(proximoPasso)
+        if (atual) {
+            atual.classList.remove('ativo');
+        }
+
+        const proximoElemento = document.getElementById(proximoPasso);
 
         if (proximoElemento) {
             proximoElemento.classList.add('ativo');
         } else {
-            console.error(`Elemento com ID "${proximoPasso}"não encontrado.`)
+            console.error(`Elemento com ID "${proximoPasso}" não encontrado.`);
         }
     });
 });
@@ -20,11 +24,11 @@ avanca.forEach(button => {
 // Reinicia o jogo ao clicar no botão de reinício
 if (reiniciarBtn) {
     reiniciarBtn.addEventListener('click', () => {
-        const tual = document.querySelector('.ativo');
-        atual.classList.remove('ativo');
+        const atual = document.querySelector('.ativo'); // corrigido
+        if (atual) {
+            atual.classList.remove('ativo');
+        }
         document.getElementById('passo-0').classList.add('ativo');
     });
-
 }
-
 
